@@ -10,7 +10,7 @@ services:
       - "1194:1194/udp"
       - "1194:1194/tcp"
     environment:
-        LOCAL_NETWORK:192.168.11.0/24
+        LOCAL_NETWORK: 192.168.11.0/24
         OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60 -–log-driver json-file --log-opt max-size=10m
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -43,10 +43,10 @@ services:
       - "63:63/udp"
       - "443:443"
     environment:
-        PROXY_LOCATION:pihole
-        VIRTUAL_PORT:80
-        DNS1:172.110.1.2#5053
-        WEBPASSWORD:1mvhMmZn
+        PROXY_LOCATION: pihole
+        VIRTUAL_PORT: 80
+        DNS1: 172.110.1.2#5053
+        WEBPASSWORD: 1mvhMmZn
     volumes:
       - ./pihole:/etc/pihole
       - ./pihole/dnsmasq.d:/etc/dnsmasq.d
@@ -70,7 +70,7 @@ services:
         vpn-net:
           ipv4_address: 172.110.1.2
     environment:
-        TUNNEL_DNS_UPSTREAM:https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
+        TUNNEL_DNS_UPSTREAM: https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
