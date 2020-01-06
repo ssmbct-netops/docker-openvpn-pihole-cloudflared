@@ -1,25 +1,6 @@
 version: '3'
 
 services:
-  cloudflared:
-    image: crazymax/cloudflared:latest
-    container_name: cloudflared
-    hostname: cloudflared
-    networks:
-        vpn-net:
-          ipv4_address: 172.110.1.2
-    environment:
-        TUNNEL_DNS_UPSTREAM:https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-    restart: always     
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "5m"
-        max-file: "3"
-
   openvpn:
     cap_add:
       - NET_ADMIN
@@ -75,6 +56,25 @@ services:
     networks:
       vpn-net:
         ipv4_address: 172.110.1.4     
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  cloudflared:
+    image: crazymax/cloudflared:latest
+    container_name: cloudflared
+    hostname: cloudflared
+    networks:
+        vpn-net:
+          ipv4_address: 172.110.1.2
+    environment:
+        TUNNEL_DNS_UPSTREAM:https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    restart: always     
     logging:
       driver: "json-file"
       options:
