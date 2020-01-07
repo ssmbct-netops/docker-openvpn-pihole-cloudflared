@@ -16,3 +16,6 @@ rm -rf docker-openvpn-pihole openvpn-install.sh
 
 wget -O spDNS_update.sh https://gist.github.com/harald-aigner/2282735f202cbb38f6893d4daec6f5fe
 chmod +x spDNS_update.sh
+
+docker network rm vpn-net
+docker network inspect vpn-net &>/dev/null || docker network create --driver=bridge --subnet=172.110.1.0/24 --gateway=172.110.1.1 pi-hole-net
