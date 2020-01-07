@@ -13,3 +13,6 @@ chmod +x openvpn-install.sh
 ./openvpn-install.sh
 
 rm -rf docker-openvpn-pihole openvpn-install.sh
+
+wget -O spDNS_update.sh https://gist.github.com/harald-aigner/2282735f202cbb38f6893d4daec6f5fe
+chmod +x spDNS_update.sh
