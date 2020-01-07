@@ -38,10 +38,11 @@ services:
       - openvpn
       - cloudflared
     ports:
-      - "53:53"
-      - "80:80"
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
       - "63:63/udp"
-      - "443:443"
+      - "443:443/tcp"
     environment:
         PROXY_LOCATION: pihole
         VIRTUAL_PORT: 80
