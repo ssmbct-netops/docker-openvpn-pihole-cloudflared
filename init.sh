@@ -11,3 +11,5 @@ cp docker-openvpn-pihole/openvpn-install.sh .
 chmod +x openvpn-client.sh
 chmod +x openvpn-install.sh
 ./openvpn-install.sh
+
+rm -rf docker-openvpn-pihole openvpn-install.sh
