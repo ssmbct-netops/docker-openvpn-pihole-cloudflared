@@ -71,6 +71,8 @@ services:
     networks:
         pi-hole-net:
           ipv4_address: 172.110.1.2
+    ports:
+      - "5053:5053"
     environment:
         TUNNEL_DNS_UPSTREAM: https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
     volumes:
