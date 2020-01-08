@@ -12,11 +12,11 @@ chmod +x openvpn-client.sh
 chmod +x openvpn-install.sh
 ./openvpn-install.sh
 
-docker-compose down
+docker-compose stop
 
 rm -rf docker-openvpn-pihole openvpn-install.sh
 
-wget -O spDNS_update.sh https://gist.github.com/harald-aigner/2282735f202cbb38f6893d4daec6f5fe
+wget -O spDNS_update.sh https://gist.githubusercontent.com/harald-aigner/2282735f202cbb38f6893d4daec6f5fe/raw/a5ba58108775b715072d29bec171e76b3216fe67/spDYN_update.sh
 chmod +x spDNS_update.sh
 
 docker network rm vpn-net
